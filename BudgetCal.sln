@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BudgetCal", "BudgetCal\BudgetCal.csproj", "{EDC89B55-4D5A-436E-B3DE-40DA5FE1E505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelConnect", "ExcelConnect\ExcelConnect.csproj", "{61E5C69E-C198-461D-95C5-200D59099FD7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelTest", "ExcelTest\ExcelTest.csproj", "{BA8EBC84-38FD-4AD7-B991-FDAFB771F687}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EDC89B55-4D5A-436E-B3DE-40DA5FE1E505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC89B55-4D5A-436E-B3DE-40DA5FE1E505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC89B55-4D5A-436E-B3DE-40DA5FE1E505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC89B55-4D5A-436E-B3DE-40DA5FE1E505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61E5C69E-C198-461D-95C5-200D59099FD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61E5C69E-C198-461D-95C5-200D59099FD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61E5C69E-C198-461D-95C5-200D59099FD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61E5C69E-C198-461D-95C5-200D59099FD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA8EBC84-38FD-4AD7-B991-FDAFB771F687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA8EBC84-38FD-4AD7-B991-FDAFB771F687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA8EBC84-38FD-4AD7-B991-FDAFB771F687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA8EBC84-38FD-4AD7-B991-FDAFB771F687}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
