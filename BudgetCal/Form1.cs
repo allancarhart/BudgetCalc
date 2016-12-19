@@ -187,6 +187,7 @@ Does it not have one?  Then uncheck 'map'
                 processDate();
         }
 
+
         private void monthCalendar1_DateSelected(object sender, DateRangeEventArgs e)
         {
             processDate();
