@@ -92,20 +92,6 @@ Does it not have one?  Then uncheck 'map'
             return DateTransactions[dateVal];
         }
 
-        private void AddTransaction(DateTime dateVal, String Vendor, Int32 Amount)
-        {
-            Int32 NextID = lastTransactionID;
-            Tuple<DateTime?, String, Int32, String, Boolean> transaction = new Tuple<DateTime?, String, Int32, String, Boolean>(dateVal, Vendor, Amount, "", false);
-            HashSet<Int32> transactions = GetTransactions(dateVal);
-            while (AllTransactions.ContainsKey(NextID))
-            {
-                NextID++; // Keep going until there is an unused ID
-            }
-            transactions.Add(NextID); // Record that we're using it
-            AllTransactions.Add(NextID, transaction);
-            DateTransactions[dateVal] = transactions;
-        }
-
         private void SetTransaction()
         {
             // I think I need this?
@@ -131,11 +117,6 @@ Does it not have one?  Then uncheck 'map'
         }
 
         private void GetCategories()
-        {
-
-        }
-
-        private void AddCategory()
         {
 
         }
@@ -201,40 +182,8 @@ Does it not have one?  Then uncheck 'map'
             }
         }
 
-        /*********************************************
-         * NEW METHODS
-         * THESE WILL NEED TO BE FULLY IMPLEMENTED
-         * BUT NOW JUST ASSUME THEY WORK
-         *********************************************/
-        void loadCategories(ComboBox listDestination)
-        {
-            object[] categories = new Object[] { "" };
-            categories[0] = (object)"Drug Store";
-            listDestination.Items.Clear();
-            listDestination.Items.AddRange(categories);
-        }
 
-        void loadTransactions(ListBox listDestination, String currentDate)
-        {
-            // This should actually pull out store and price as two different things. 
-            object[] transactions = new Object[] { "" };
-            transactions[0] = (object)"Item - 123";
-            listDestination.Items.Clear();
-            listDestination.Items.AddRange(transactions);
-        }
-
-        void addCategory(ComboBox listDestination, String newItem)
-        {
-            // Add it to a master list
-
-            // Also add it to a visual list
-            if (!listDestination.Items.Contains(newItem))
-            {
-                listDestination.Items.Add(newItem);
-            }
-        }
-        /*********************************************/
-
+        //December, 2016
         private void showExpenses()
         {
             currentDate.Visible = true;
@@ -278,7 +227,7 @@ Does it not have one?  Then uncheck 'map'
                 }
             }
                 */
-
+                
             ///December 16th 2016, this is where the relevant code starts.  Stuff earlier may not be actually used
             transactions.Visible = false;
             categoryList.Visible = false;
@@ -481,20 +430,114 @@ Does it not have one?  Then uncheck 'map'
 
         //This is because I wanted to call 'MouseClick' from other elements that are not related to mice
         // I could probably clean this up by having a legitimate event be used here, and then call mouse click
-        private void transactionAdd_MouseClick(object sender, EventArgs e)
+
+        private void AddCategory()
         {
-            transactionAdd_MouseClick(sender, null);
+
         }
 
         //Todo: Actually add to the listbox and some data structure
         // Then make categorization work
-        private void transactionAdd_MouseClick(object sender, MouseEventArgs e)
+        private void transactionAdd_Enter(object sender, EventArgs e)
         {
             String newItem = newTransactionDesc.Text;
             float newPrice = float.Parse(newTransactionAmount.Text);
-
-            MessageBox.Show("Add");
+            addTransaction(transactions, newItem, newPrice);
             newTransactionDesc.Focus();
         }
+        /*********************************************
+         * NEW METHODS
+         * THESE WILL NEED TO BE FULLY IMPLEMENTED
+         * BUT NOW JUST ASSUME THEY WORK
+         *********************************************/
+        //December, 2016
+        void loadCategories(ComboBox listDestination)
+        {
+            object[] categories = new Object[] { "" };
+            categories[0] = (object)"Drug Store";
+            listDestination.Items.Clear();
+            listDestination.Items.AddRange(categories);
+        }
+
+        void loadTransactions(ListBox listDestination, String currentDate)
+        {
+            // This should actually pull out store and price as two different things. 
+            object[] transactions = new Object[] { "" };
+            transactions[0] = (object)"Item - 123";
+            listDestination.Items.Clear();
+            listDestination.Items.AddRange(transactions);
+        }
+
+        void addCategory(ComboBox listDestination, String newItem)
+        {
+            // Add it to a master list
+
+            // Also add it to a visual list
+            if (!listDestination.Items.Contains(newItem))
+            {
+                listDestination.Items.Add(newItem);
+            }
+
+        }//December, 2016
+        private void addTransaction(ListBox destination, String item, float amount)
+        {
+
+            // Add to the master list
+            string label = item + " - " + amount.ToString();
+            destination.Items.Add((object)label);
+        }
+        /*********************************************/
+
+        private void transactions_MouseClick(object sender, MouseEventArgs e)
+        {
+        }
+        /*
+         * http://stackoverflow.com/questions/2416748/how-to-simulate-mouse-click-in-c
+using System;
+using System.Windows.Forms;
+using System.Runtime.InteropServices;
+
+public class Form1 : Form
+{
+   [DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
+   public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
+   //Mouse actions
+   private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+   private const int MOUSEEVENTF_LEFTUP = 0x04;
+   private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
+   private const int MOUSEEVENTF_RIGHTUP = 0x10;
+
+   public Form1()
+   {
+   }
+
+   public void DoMouseClick()
+   {
+      //Call the imported function with the cursor's current position
+      uint X = Cursor.Position.X;
+      uint Y = Cursor.Position.Y;
+      mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, X, Y, 0, 0);
+   }
+
+   //...other code needed for the application
+}         
+         */
     }
+
+
+    /*    private void AddTransaction(DateTime dateVal, String Vendor, Int32 Amount)
+        {
+            Int32 NextID = lastTransactionID;
+            Tuple<DateTime?, String, Int32, String, Boolean> transaction = new Tuple<DateTime?, String, Int32, String, Boolean>(dateVal, Vendor, Amount, "", false);
+            HashSet<Int32> transactions = GetTransactions(dateVal);
+            while (AllTransactions.ContainsKey(NextID))
+            {
+                NextID++; // Keep going until there is an unused ID
+            }
+            transactions.Add(NextID); // Record that we're using it
+            AllTransactions.Add(NextID, transaction);
+            DateTransactions[dateVal] = transactions;
+        }
+        */
+
 }

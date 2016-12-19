@@ -190,6 +190,7 @@
             this.transactions.Name = "transactions";
             this.transactions.Size = new System.Drawing.Size(204, 342);
             this.transactions.TabIndex = 105;
+            this.transactions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.transactions_MouseClick);
             this.transactions.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // transactionAdd
@@ -200,10 +201,7 @@
             this.transactionAdd.TabIndex = 2;
             this.transactionAdd.Text = "Add";
             this.transactionAdd.UseVisualStyleBackColor = true;
-            this.transactionAdd.Click += new System.EventHandler(this.transactionAdd_MouseClick);
-            this.transactionAdd.Enter += new System.EventHandler(this.transactionAdd_MouseClick);
-            this.transactionAdd.MouseClick += new System.Windows.Forms.MouseEventHandler(this.transactionAdd_MouseClick);
-            this.transactionAdd.MouseDown += new System.Windows.Forms.MouseEventHandler(this.transactionAdd_MouseClick);
+            this.transactionAdd.Enter += new System.EventHandler(this.transactionAdd_Enter);
             // 
             // label3
             // 
