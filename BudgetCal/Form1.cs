@@ -491,8 +491,10 @@ Does it not have one?  Then uncheck 'map'
         private void transactions_MouseClick(object sender, MouseEventArgs e)
         {
         }
-        /*
+        /*https://groups.google.com/forum/#!topic/microsoft.public.dotnet.languages.csharp/tJysmxiUPlw
          * http://stackoverflow.com/questions/2416748/how-to-simulate-mouse-click-in-c
+         * https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.uitesting.mouse.click.aspx
+         * https://msdn.microsoft.com/en-us/library/ms171548(v=vs.110).aspx
 using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
