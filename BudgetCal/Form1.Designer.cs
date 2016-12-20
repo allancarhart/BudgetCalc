@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 100D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -100D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint3 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 10D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint4 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 20D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint5 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -10D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint6 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -20D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint7 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint8 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint9 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint10 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint11 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
-            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint12 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint13 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 100D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint14 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -100D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint15 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 10D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint16 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 20D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint17 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -10D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint18 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, -20D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint19 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint20 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint21 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint22 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint23 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint24 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.dayView = new System.Windows.Forms.Panel();
             this.CategoryMap = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -62,7 +62,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button4 = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.deleteTransaction = new System.Windows.Forms.Button();
+            this.dayView.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
@@ -75,28 +76,28 @@
             this.monthCalendar1.TabIndex = 121;
             this.monthCalendar1.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateSelected);
             // 
-            // panel1
+            // dayView
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.CategoryMap);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.newTransactionAmount);
-            this.panel1.Controls.Add(this.categoryAdd);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.trackBar1);
-            this.panel1.Controls.Add(this.autoMap);
-            this.panel1.Controls.Add(this.transactions);
-            this.panel1.Controls.Add(this.transactionAdd);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.categoryList);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.newTransactionDesc);
-            this.panel1.Location = new System.Drawing.Point(15, 224);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(707, 502);
-            this.panel1.TabIndex = 101;
-            this.panel1.Visible = false;
+            this.dayView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dayView.Controls.Add(this.CategoryMap);
+            this.dayView.Controls.Add(this.label6);
+            this.dayView.Controls.Add(this.label5);
+            this.dayView.Controls.Add(this.newTransactionAmount);
+            this.dayView.Controls.Add(this.categoryAdd);
+            this.dayView.Controls.Add(this.label4);
+            this.dayView.Controls.Add(this.trackBar1);
+            this.dayView.Controls.Add(this.autoMap);
+            this.dayView.Controls.Add(this.transactions);
+            this.dayView.Controls.Add(this.transactionAdd);
+            this.dayView.Controls.Add(this.label3);
+            this.dayView.Controls.Add(this.categoryList);
+            this.dayView.Controls.Add(this.label2);
+            this.dayView.Controls.Add(this.newTransactionDesc);
+            this.dayView.Location = new System.Drawing.Point(15, 224);
+            this.dayView.Name = "dayView";
+            this.dayView.Size = new System.Drawing.Size(707, 502);
+            this.dayView.TabIndex = 101;
+            this.dayView.Visible = false;
             // 
             // CategoryMap
             // 
@@ -190,8 +191,8 @@
             this.transactions.Name = "transactions";
             this.transactions.Size = new System.Drawing.Size(204, 342);
             this.transactions.TabIndex = 105;
-            this.transactions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.transactions_MouseClick);
             this.transactions.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            this.transactions.MouseDown += new System.Windows.Forms.MouseEventHandler(this.transactions_MouseDown);
             // 
             // transactionAdd
             // 
@@ -277,53 +278,53 @@
             // chart1
             // 
             this.chart1.BackColor = System.Drawing.SystemColors.Control;
-            chartArea1.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
-            chartArea1.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            chartArea2.AlignmentOrientation = System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal;
+            chartArea2.AxisX.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.AxisY.Enabled = System.Windows.Forms.DataVisualization.Charting.AxisEnabled.False;
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
             this.chart1.Location = new System.Drawing.Point(719, 12);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
         System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))))};
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
-            series1.IsVisibleInLegend = false;
-            series1.Name = "Series1";
-            dataPoint1.Color = System.Drawing.Color.White;
-            dataPoint1.IsEmpty = true;
-            dataPoint1.Label = "";
-            dataPoint2.Color = System.Drawing.Color.White;
-            dataPoint2.IsEmpty = true;
-            dataPoint2.Label = "";
-            dataPoint3.Color = System.Drawing.Color.Green;
-            dataPoint3.Label = "xyzzy";
-            dataPoint4.Color = System.Drawing.Color.Green;
-            dataPoint4.Label = "foofoo";
-            dataPoint5.Color = System.Drawing.Color.Red;
-            dataPoint5.Label = "under";
-            dataPoint6.Color = System.Drawing.Color.Red;
-            dataPoint6.Label = "water";
-            dataPoint7.Label = "abc";
-            dataPoint8.Label = "def";
-            dataPoint9.Label = "ghi";
-            dataPoint10.Label = "jkl";
-            dataPoint11.Label = "mno";
-            dataPoint12.Label = "prs";
-            series1.Points.Add(dataPoint1);
-            series1.Points.Add(dataPoint2);
-            series1.Points.Add(dataPoint3);
-            series1.Points.Add(dataPoint4);
-            series1.Points.Add(dataPoint5);
-            series1.Points.Add(dataPoint6);
-            series1.Points.Add(dataPoint7);
-            series1.Points.Add(dataPoint8);
-            series1.Points.Add(dataPoint9);
-            series1.Points.Add(dataPoint10);
-            series1.Points.Add(dataPoint11);
-            series1.Points.Add(dataPoint12);
-            this.chart1.Series.Add(series1);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Bar;
+            series2.IsVisibleInLegend = false;
+            series2.Name = "Series1";
+            dataPoint13.Color = System.Drawing.Color.White;
+            dataPoint13.IsEmpty = true;
+            dataPoint13.Label = "";
+            dataPoint14.Color = System.Drawing.Color.White;
+            dataPoint14.IsEmpty = true;
+            dataPoint14.Label = "";
+            dataPoint15.Color = System.Drawing.Color.Green;
+            dataPoint15.Label = "xyzzy";
+            dataPoint16.Color = System.Drawing.Color.Green;
+            dataPoint16.Label = "foofoo";
+            dataPoint17.Color = System.Drawing.Color.Red;
+            dataPoint17.Label = "under";
+            dataPoint18.Color = System.Drawing.Color.Red;
+            dataPoint18.Label = "water";
+            dataPoint19.Label = "abc";
+            dataPoint20.Label = "def";
+            dataPoint21.Label = "ghi";
+            dataPoint22.Label = "jkl";
+            dataPoint23.Label = "mno";
+            dataPoint24.Label = "prs";
+            series2.Points.Add(dataPoint13);
+            series2.Points.Add(dataPoint14);
+            series2.Points.Add(dataPoint15);
+            series2.Points.Add(dataPoint16);
+            series2.Points.Add(dataPoint17);
+            series2.Points.Add(dataPoint18);
+            series2.Points.Add(dataPoint19);
+            series2.Points.Add(dataPoint20);
+            series2.Points.Add(dataPoint21);
+            series2.Points.Add(dataPoint22);
+            series2.Points.Add(dataPoint23);
+            series2.Points.Add(dataPoint24);
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(580, 747);
             this.chart1.TabIndex = 118;
             this.chart1.Text = "chart1";
@@ -339,23 +340,40 @@
             this.button4.Text = "Debug";
             this.button4.UseVisualStyleBackColor = true;
             // 
+            // deleteTransaction
+            // 
+            this.deleteTransaction.AutoSize = true;
+            this.deleteTransaction.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.deleteTransaction.BackColor = System.Drawing.SystemColors.Control;
+            this.deleteTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteTransaction.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.deleteTransaction.Location = new System.Drawing.Point(494, 117);
+            this.deleteTransaction.Name = "deleteTransaction";
+            this.deleteTransaction.Size = new System.Drawing.Size(54, 23);
+            this.deleteTransaction.TabIndex = 125;
+            this.deleteTransaction.Text = "Delete";
+            this.deleteTransaction.UseVisualStyleBackColor = false;
+            this.deleteTransaction.Visible = false;
+            this.deleteTransaction.Click += new System.EventHandler(this.deleteTransaction_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1318, 763);
+            this.Controls.Add(this.deleteTransaction);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.currentDate);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.dayView);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.dayView.ResumeLayout(false);
+            this.dayView.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
@@ -366,7 +384,7 @@
         #endregion
 
         private System.Windows.Forms.MonthCalendar monthCalendar1;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel dayView;
         private System.Windows.Forms.Label currentDate;
         private System.Windows.Forms.Button transactionAdd;
         private System.Windows.Forms.Label label3;
@@ -385,6 +403,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox newTransactionAmount;
         private System.Windows.Forms.CheckBox CategoryMap;
+        private System.Windows.Forms.Button deleteTransaction;
     }
 }
 

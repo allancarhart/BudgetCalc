@@ -5,9 +5,11 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
+// Don't need this if we don't need Forceclickusing System.Runtime.InteropServices;
 
 
 // The way this code is emerging is ridiculous. I should not be struggling with this.
@@ -20,6 +22,21 @@ namespace BudgetCal
 {
     public partial class Form1 : Form
     {
+        /*
+         *      *PRETTY* sure I don't need this any more.  I just wanted to make an item be selected by left-clicking if I got right click.
+         *      However, there is a way to do a selected-item-from-point which seems a lot cleaner.
+         *      http://stackoverflow.com/questions/9220501/right-click-to-select-items-in-a-listbox
+         *              [DllImport("user32.dll", CharSet = CharSet.Auto, CallingConvention = CallingConvention.StdCall)]
+                public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
+                //Mouse actions
+                private const int MOUSEEVENTF_LEFTDOWN = 0x02;
+                private const int MOUSEEVENTF_LEFTUP = 0x04;
+        public void ForceClick(uint X, uint Y)
+        {
+            //Call the imported function with the cursor's current position
+            mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, X, Y, 0, 0);
+        }
+        */
 
         //        private List<Dictionary<String, String>> transactionList = new List<Dictionary<string, string>>();
         //        private HashSet<Int32> TransactionIDs = new HashSet<Int32>(); // All transactions represented here
@@ -100,7 +117,7 @@ Does it not have one?  Then uncheck 'map'
         {
             HashSet<Int32> transactions = GetTransactions(dateVal);
             transactions.Remove(transactionID);
-            AllTransactions[transactionID] = UpdateTransaction(AllTransactions[transactionID],null);
+            AllTransactions[transactionID] = UpdateTransaction(AllTransactions[transactionID], null);
             //HALLOWEEN TODO XYZZY:  Keep implementing these methods, and then use them down below.  
             // Later I can wire up the use of these to the persistent storage needs
         }
@@ -159,13 +176,13 @@ Does it not have one?  Then uncheck 'map'
             }
             transactionSet.AcceptChanges();
 
-//            IQueryable<DataRow> rowResults = transactionSet.Rows.AsQueryable();
-//            rowResults = from row in rowResults where 
+            //            IQueryable<DataRow> rowResults = transactionSet.Rows.AsQueryable();
+            //            rowResults = from row in rowResults where 
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
-                processDate();
+            processDate();
         }
 
 
@@ -193,7 +210,7 @@ Does it not have one?  Then uncheck 'map'
             transactionAdd.Visible = true;
             categoryAdd.Visible = true;
             categoryAdd.Enabled = false;
-            panel1.Visible = true;
+            dayView.Visible = true;
             currentDate.Text = monthCalendar1.SelectionStart.ToShortDateString();
 
 
@@ -227,7 +244,7 @@ Does it not have one?  Then uncheck 'map'
                 }
             }
                 */
-                
+
             ///December 16th 2016, this is where the relevant code starts.  Stuff earlier may not be actually used
             transactions.Visible = false;
             categoryList.Visible = false;
@@ -236,8 +253,8 @@ Does it not have one?  Then uncheck 'map'
             transactions.Visible = true;
             categoryList.Visible = true;
 
-            newTransactionDesc.Text = newMerchant; 
-            newTransactionAmount.Text = newAmount; 
+            newTransactionDesc.Text = newMerchant;
+            newTransactionAmount.Text = newAmount;
             transactionAdd.Enabled = false;
         }
 
@@ -262,7 +279,7 @@ Does it not have one?  Then uncheck 'map'
             transactionAdd.Visible = false;
             categoryAdd.Enabled = false;
             categoryAdd.Visible = false;
-            panel1.Visible = false;
+            dayView.Visible = false;
             categoryList.Visible = false;
             monthCalendar1.Height = 1;
             monthCalendar1.Width = 1;
@@ -337,22 +354,22 @@ Does it not have one?  Then uncheck 'map'
         {
             DateTime currentDay = dayTransactions[0].Field<DateTime>("date");
             // WHAT THE FREAKING HELL?  Find an example that shows me how to do a "SELECT ... WHERE (BOOLEAN) AND (BOOLEAN)" in Linq, 'cause I'm just not getting it
-//            dayTransactions.AsEnumerable<DataRow>().Where<DataRow>(((dayTransactions,row.Field<String>("vendor") != Vendor) => row); //(row ==> row.Field<String("vendor") != Vendor || row.Field<Double>("amount") != Amount)
-/*            IEnumerable<DataRow> removed =
-                from row in dayTransactions.AsEnumerable<DataRow>()
-                .Where(emp => emp.Field<int>("EmpID")
-            == 1 || emp.Field<int>("EmpID") == 2);
+            //            dayTransactions.AsEnumerable<DataRow>().Where<DataRow>(((dayTransactions,row.Field<String>("vendor") != Vendor) => row); //(row ==> row.Field<String("vendor") != Vendor || row.Field<Double>("amount") != Amount)
+            /*            IEnumerable<DataRow> removed =
+                            from row in dayTransactions.AsEnumerable<DataRow>()
+                            .Where(emp => emp.Field<int>("EmpID")
+                        == 1 || emp.Field<int>("EmpID") == 2);
 
-                where row.Field<String>("vendor") != Vendor || row.Field<String>("amount") != Amount
-                select row;
- */
+                            where row.Field<String>("vendor") != Vendor || row.Field<String>("amount") != Amount
+                            select row;
+             */
             return dayTransactions.ToList<DataRow>();
 
-//            dayTransactions.
-//            DataRow row = transactionSet.NewRow();
-//            row.ItemArray = new Object[] { currentDay, Vendor, Amount, Category };
-//            IEnumerable<DataRow> newRow = Enumerable.Repeat<DataRow>(row, 1);
-//            return dayTransactions.Concat<DataRow>(newRow).ToList<DataRow>();
+            //            dayTransactions.
+            //            DataRow row = transactionSet.NewRow();
+            //            row.ItemArray = new Object[] { currentDay, Vendor, Amount, Category };
+            //            IEnumerable<DataRow> newRow = Enumerable.Repeat<DataRow>(row, 1);
+            //            return dayTransactions.Concat<DataRow>(newRow).ToList<DataRow>();
         }
 
         private void CategoryMap_CheckedChanged(object sender, EventArgs e)
@@ -362,7 +379,7 @@ Does it not have one?  Then uncheck 'map'
 
         private void categoryAdd_Click(object sender, EventArgs e)
         {
-            if (! String.IsNullOrEmpty(categoryList.Text))
+            if (!String.IsNullOrEmpty(categoryList.Text))
             {
                 addCategory(categoryList, categoryList.Text);
             }
@@ -418,7 +435,7 @@ Does it not have one?  Then uncheck 'map'
         private void newTransaction_entered(object sender, EventArgs e)
         {
             float numAmount = 0;
-            if (newTransactionDesc.Text != "" && float.TryParse(newTransactionAmount.Text.Replace("$",""), out numAmount))
+            if (newTransactionDesc.Text != "" && float.TryParse(newTransactionAmount.Text.Replace("$", ""), out numAmount))
             {
                 transactionAdd.Enabled = true;
             }
@@ -488,58 +505,38 @@ Does it not have one?  Then uncheck 'map'
         }
         /*********************************************/
 
-        private void transactions_MouseClick(object sender, MouseEventArgs e)
+        private void transactions_MouseDown(object sender, MouseEventArgs e)
         {
-        }
-        /*https://groups.google.com/forum/#!topic/microsoft.public.dotnet.languages.csharp/tJysmxiUPlw
-         * http://stackoverflow.com/questions/2416748/how-to-simulate-mouse-click-in-c
-         * https://msdn.microsoft.com/en-us/library/microsoft.visualstudio.testtools.uitesting.mouse.click.aspx
-         * https://msdn.microsoft.com/en-us/library/ms171548(v=vs.110).aspx
-using System;
-using System.Windows.Forms;
-using System.Runtime.InteropServices;
+            Point controlClick = new Point(e.X, e.Y); // This is where the user clicked relative to the control only
+            Point formClick = new Point(dayView.Location.X + transactions.Location.X + e.X, dayView.Location.Y + transactions.Location.Y + e.Y); // Relative to the entire form
 
-public class Form1 : Form
-{
-   [DllImport("user32.dll",CharSet=CharSet.Auto, CallingConvention=CallingConvention.StdCall)]
-   public static extern void mouse_event(uint dwFlags, uint dx, uint dy, uint cButtons, uint dwExtraInfo);
-   //Mouse actions
-   private const int MOUSEEVENTF_LEFTDOWN = 0x02;
-   private const int MOUSEEVENTF_LEFTUP = 0x04;
-   private const int MOUSEEVENTF_RIGHTDOWN = 0x08;
-   private const int MOUSEEVENTF_RIGHTUP = 0x10;
+            deleteTransaction.Visible = false;  // Hide Make the "delete" button
 
-   public Form1()
-   {
-   }
-
-   public void DoMouseClick()
-   {
-      //Call the imported function with the cursor's current position
-      uint X = Cursor.Position.X;
-      uint Y = Cursor.Position.Y;
-      mouse_event(MOUSEEVENTF_LEFTDOWN | MOUSEEVENTF_LEFTUP, X, Y, 0, 0);
-   }
-
-   //...other code needed for the application
-}         
-         */
-    }
-
-
-    /*    private void AddTransaction(DateTime dateVal, String Vendor, Int32 Amount)
-        {
-            Int32 NextID = lastTransactionID;
-            Tuple<DateTime?, String, Int32, String, Boolean> transaction = new Tuple<DateTime?, String, Int32, String, Boolean>(dateVal, Vendor, Amount, "", false);
-            HashSet<Int32> transactions = GetTransactions(dateVal);
-            while (AllTransactions.ContainsKey(NextID))
+            if (e.Button == MouseButtons.Right)
             {
-                NextID++; // Keep going until there is an unused ID
+                // User right-clicked
+                // 
+                int clickedIndex = transactions.IndexFromPoint(controlClick); // Take the coordinates of the click and locate the item being clicked
+                if (clickedIndex >= 0) // The user clicked a valid area in the control - we can use the index
+                {
+                    transactions.SelectedIndex = clickedIndex; // Select just as though the user had left-clicked
+                    deleteTransaction.Text = "Delete: " + transactions.Items[clickedIndex];
+                    deleteTransaction.Location = formClick; // Give the user a "delete" button right where the clicked
+                    deleteTransaction.Visible = !deleteTransaction.Visible; // Make the "delete" button visible :)
+                }
             }
-            transactions.Add(NextID); // Record that we're using it
-            AllTransactions.Add(NextID, transaction);
-            DateTransactions[dateVal] = transactions;
         }
-        */
 
+        private void deleteTransaction_Click(object sender, EventArgs e)
+        {
+            deleteTransaction.Visible = false;
+            int deleteIndex = transactions.SelectedIndex;
+            String deleteTransactionItem = (string) transactions.Items[deleteIndex];
+            String[] deleteTransactionText = Regex.Split(deleteTransactionItem, " - ");
+            newTransactionDesc.Text = deleteTransactionText[0];
+            newTransactionAmount.Text = deleteTransactionText[1];
+            transactions.Items.RemoveAt(deleteIndex);
+            //TODO: ALSO DELETE IN THE DEFINITIVE DATA STRUCTURE WHICH DOES NOT YET EXIST
+        }
+    }
 }
